@@ -12,9 +12,6 @@ jobs:
     permissions:
       contents: write       # to create release and push tags back
       issues: write         # to post issue comments
-      pull-requests: write  # to create pull request
-      id-token: write       # to create release
-      packages: write       # to publish to npm
     timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
