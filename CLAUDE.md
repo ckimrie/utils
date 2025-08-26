@@ -23,8 +23,8 @@ This is @ckimrie/utils - a personal utility library with frequently used helper 
 
 ### Publishing
 
-- `npm run version` - Use changesets to version
-- `npm run release` - Publish with changesets
+- Releases are automatically handled by semantic-release on push to main branch
+- Uses conventional commits to determine version bumps (fix: = patch, feat: = minor, BREAKING CHANGE: = major)
 
 ## Architecture
 
@@ -39,7 +39,7 @@ This is @ckimrie/utils - a personal utility library with frequently used helper 
 ### Key Patterns
 
 - Uses dependency injection pattern for testability (see UserInfoProvider, BranchNameProvider types)
-- All git operations use executeGitCommand wrapper for consistent error handling
+- Git operations use internal executeGitCommand wrapper (not exported)
 - Environment-aware naming system that scopes resources based on CI vs local environment
 - Dual build output: both CommonJS (.cjs) and ES modules (.mjs)
 

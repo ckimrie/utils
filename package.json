@@ -41,8 +41,6 @@
     "test": "c8 node --import tsx --test test/**/*.test.ts",
     "test:watch": "c8 node --import tsx --test --watch test/**/*.test.ts",
     "coverage:view": "open coverage/lcov-report/index.html",
-    "version": "changeset version",
-    "release": "changeset publish",
     "prepare": "husky"
   },
   "author": {
@@ -72,8 +70,10 @@
     "url": "https://github.com/ckimrie/utils.git"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.7",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^24.2.7",
     "@types/node": "^20.14.10",
     "c8": "^10.1.2",
     "eslint": "^9.6.0",
