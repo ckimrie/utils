@@ -74,7 +74,7 @@ const env = getEnv('NODE_ENV', 'development')
 const apiKey = getEnv('API_KEY', '')
 ```
 
-#### `envAwareName(name: string, maxLength?: number): string`
+#### `envAwareName(name: string, maxLength: number = 30): string`
 
 Generate environment-aware resource names. In CI environments, appends the environment name. In local development, appends username and git branch name, truncated for uniqueness.
 
@@ -131,7 +131,7 @@ if (isCI()) {
 
 ### String Utilities
 
-#### `shortButUnique(str: string, maxLength?: number, separator?: string): string`
+#### `shortButUnique(str: string, maxLength: number = 8, separator: string = '-'): string`
 
 Truncate a string to a maximum length while maintaining uniqueness by appending a hash of the truncated portion.
 
@@ -149,21 +149,6 @@ shortButUnique('long-string', 15, '_') // 'long-string_c3d4' (custom separator)
 ```
 
 ### Git Utilities
-
-#### `executeGitCommand(command: string, executor?: CommandExecutor): string`
-
-Execute a git command and return the output as a clean string with trailing whitespace removed.
-
-**Parameters:**
-- `command`: Git command to execute
-- `executor`: Optional command executor for dependency injection (default: execSync)
-
-```typescript
-import { executeGitCommand } from '@ckimrie/utils'
-
-const commitHash = executeGitCommand('git rev-parse HEAD')
-const status = executeGitCommand('git status --porcelain')
-```
 
 #### `currentBranchName(executor?: CommandExecutor): string`
 
@@ -213,11 +198,12 @@ const config = {
 ### Git-Based Workflows
 
 ```typescript
-import { currentBranchName, executeGitCommand } from '@ckimrie/utils'
+import { currentBranchName } from '@ckimrie/utils'
+import { execSync } from 'node:child_process'
 
 const branch = currentBranchName()
 const isMainBranch = branch === 'main'
-const hasChanges = executeGitCommand('git status --porcelain').length > 0
+const hasChanges = execSync('git status --porcelain').toString().length > 0
 
 if (!isMainBranch && hasChanges) {
   console.log(`Working on ${branch} with uncommitted changes`)
