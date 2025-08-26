@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: write       # to create release and push tags back
       issues: write         # to post issue comments
+      id-token: write       
     timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
