@@ -1,3 +1,10 @@
+## [0.0.3](https://github.com/ckimrie/utils/compare/v0.0.2...v0.0.3) (2025-11-05)
+
+
+### Bug Fixes
+
+* configure tsup to generate correct output filenames and bundle modules ([#25](https://github.com/ckimrie/utils/issues/25)) ([5d90b2f](https://github.com/ckimrie/utils/commit/5d90b2ff4e7f1e7edfbb185a5b67edd674e85ca1))
+
 ## [0.0.2](https://github.com/ckimrie/utils/compare/v0.0.1...v0.0.2) (2025-08-27)
 
 
