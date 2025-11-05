@@ -2,14 +2,14 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig([
   {
-    entryPoints: ['src/index.ts'],
+    entry: { main: 'src/index.ts' },
     format: ['cjs', 'esm'],
     dts: true,
     minify: false,
     outDir: 'dist/',
     clean: true,
     sourcemap: false,
-    bundle: false,
+    bundle: true,
     splitting: false,
     outExtension (ctx) {
       return {
